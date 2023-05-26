@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<head>
+  <title>My Website</title>
+  <style>
+    body {
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding:0;
+    }
+    header {
+      background-color: #54ad99;
+      color: #ffffff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+
+    }
+    .header i {
+      margin-right: 5px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+    }
+    
+    .top-menu {
+      position: absolute;
+      top: 20px;
+      text-align: right;
+      display: inline;
+      color: #fff;
+      padding: 2px;
+      margin-left: 700px;
+    }
+
+    .top-menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-menu ul li {
+      display: inline;
+      margin-left: 20px;
+    }
+
+    .top-menu ul li a {
+      color: #ffffff;
+      font-weight: bolder;
+      font-size: 20px;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      text-decoration: underline;
+
+    }
+    .top-menu ul li a:hover {
+      background-color: #555;
+    }
+    .top-menu ul li a:hover {
+      border-width: 2cm;
+      border-radius: 5px;
+      transition: background-color 0.1s ease-in-out;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .figure {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .contents {
+      flex: 1;
+      padding: 10px;
+    }
+
+    img {
+      max-width: 65%;
+      height: auto;
+    }
+    .emoji {
+      font-size: 36px;
+    }
+    .container1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin: 40px;
+      padding: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+
+    }
+
+    .box:hover {
+      transform: scale(1.1);
+    }
+
+    .box img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    .sub-project {
+      margin-bottom: 13px;
+    }
+
+    .sub-project h4 {
+      margin:3.5cm;
+      margin-bottom: 3px;
+      margin-top: 8px;
+      font-weight: bold;
+      font-size:20px;
+    }
+
+    .sub-project p {
+      margin:2cm;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left: 4.5cm ;
+    }
+
+    .separator {
+      width: 70%;
+      height: 1px;
+      background-color: #ccc;
+      margin-left: 6cm ;
+    }
+    .section {
+      margin: 20px;
+    }
+
+    .review {
+      margin-bottom: 20px;
+    }
+
+    .review .box {
+      margin-bottom: 10px;
+      width: 200px;
+      height: 200px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin: 40px;
+      padding: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .review-box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-direction: row;
+    }
+    .review .box:hover {
+      transform: scale(1.1);
+    }
+    .quote {
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .popup {
+      position: fixed;
+      width: 250px;
+      height: 130px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #54ad99;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+    .popup.active {
+      display: block;
+    }
+    .popup.button{
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color:#fefefe;
+      color: #bb0e0e;
+      border: none;
+      cursor: pointer;
+
+    }
+    .recommendation {
+      text-align: center;
+    }
+
+    .recommendation .box {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .recommendation input[type="text"],
+    .recommendation textarea {
+      width: 50%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+ 
+    .recommendation button {
+      padding: 10px 20px;
+      border-radius:3%;
+      border-width: 2px;
+      border-color: #2b642d;
+      background-color: #eef7ee;
+      color:#2b642d;
+      cursor: pointer;
+    }
+    .tick-mark {
+      color: rgb(15, 93, 15);
+      font-size: 20px;
+      text-align:center;
+      margin-bottom: 10px;
+    }
+    .scroll-to-top-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fefefe;
+      color: #3044dd;
+      width: 60px;
+      height: 40px;
+      border-radius:3%;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .scroll-to-top-button:hover {
+      transform: scale(1.1);
+    }
+
+  </style>
+  <script>
+    function submitForm() {
+      var name = document.getElementById('name').value;
+      var userMessage = document.getElementById('user-message').value;
+
+      if (userMessage.trim() !== '') {
+        var reviewSection = document.getElementById('review-section');
+        var reviewBoxContainer = document.querySelector('.review-box-container');
+        var box = document.createElement('div');
+        box.className = 'box';
+
+        var content = '<div class="quote">"' + userMessage + '"</div>';
+
+
+        box.innerHTML = content;
+        reviewBoxContainer.prepend(box);
+
+        document.getElementById('name').value = '';
+        document.getElementById('user-message').value = '';
+
+        showPopup();
+      }
+    }
+
+    function showPopup() {
+      var popup = document.getElementById('popup');
+      popup.classList.add('active');
+
+      setTimeout(function() {
+        popup.classList.remove('active');
+      }, 9000);
+    }
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+        <i class="fa fa-user"></i>
+        <div class="contact-info">
+          <span>Seetha Dinesh</span>
+          <span><img src="file:///home/seetha/Downloads/icons8-email-48.png"width="20px">yourname@example.com</span>
+          <span><img src="file:///home/seetha/Downloads/icons8-phone-48.png"width="20px">+123-456-7890</span>
+        </div>
+      <div class="top-menu">
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#recommendations">Recommendations</a></li>
+        </ul>
+      </div>
+  </header>
+  <section id="about">
+    <div class="container">
+      <div class="figure">
+        <img src="file:///home/seetha/Downloads/Untitled%20design%20(4).png" alt="Figure">
+      </div>
+      <div class="contents">
+        <h1 style="font-size:1cm;color: darkgreen;">Hi,I'm Seetha Dinesh!<span class="emoji">&#128075;</span></h1>
+        <p>I'm  a experienced Full Stack Developer. With a strong foundation in both front-end and back-end development, I love creating innovative and user-friendly web applications.
+          As a Full Stack Developer, I have a deep understanding of various programming languages, frameworks, and technologies. On the front-end, I am proficient in HTML, CSS, and JavaScript, and I have expertise in frameworks such as React, Angular, or Vue.js. I strive to create intuitive and visually appealing user interfaces that enhance the user experience.
+          On the back-end, I am skilled in server-side languages like Python, Ruby, Java, or Node.js. I have experience working with frameworks such as Django, Ruby on Rails, Spring Boot, or Express.js, building robust and scalable applications. I am adept at designing and optimizing databases, utilizing technologies like MySQL, MongoDB, or PostgreSQL.
+          My journey as a Full Stack Developer has provided me with a comprehensive understanding of the entire web development process. From concept to deployment, I am comfortable working on all stages of development, from creating wireframes and mockups to implementing complex business logic.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section  id="skills">
+    <h2 style="font-size:1cm; text-align:left;margin-left:15cm;color: darkgreen;">Skills</h2>
+    <div class="container1">
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-html-5-48.png"width="48px" alt="Java Logo">
+        <h3>Java</h3>
+        <p>3 years experience</p>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-css-100.png"width="48px "alt="CSS Logo">
+        <h3>CSS</h3>
+        <p>2 years experience</p>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-python-48.png"width="48px" alt="Python Logo">
+        <h3>Python</h3>
+        <p>5 years experience</p>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-react-100.png"width="48px" alt="React Logo">
+        <h3>React</h3>
+        <p>3 years experience</p>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-html-5-48.png"width="48px" alt="HTML Logo">
+        <p>4 years experience</p>
+        <h3>HTML</h3>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-javascript-64.png"width="48px" alt="JavaScript Logo">
+        <h3>JavaScript</h3>
+        <p>5 years experience</p>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-node-js-48.png" alt="Node.js Logo">
+        <h3>Node.js</h3>
+        <p>2 years experience</p>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-c-48.png" alt="C++ Logo">
+        <h3>C++</h3>
+        <p>4 years experience</p>
+      </div>
+      <div class="box">
+        <img src="file:///home/seetha/Downloads/icons8-c-programming-48.png" alt="C Logo">
+        <h3>C</h3>
+        <p>3 years experience</p>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <h4 style="font-size:1cm; text-align:left;margin:2cm;margin-bottom:35px;color: darkgreen;">Projects</h4>
+    <div class="sub-project">
+      <h4>E-commerce Website</h4>
+      <p>&bull;An online store where products or services can be bought or sold. It typically includes features like product listings, shopping carts, payment gateways, and order management. </p>
+    </div>
+    <div class="separator"></div>
+    <div class="sub-project">
+      <h4>Social Networking Website</h4>
+      <p>&bull;A platform that allows users to connect, interact, and share content with each other. It can include features like user profiles, friend requests, messaging, and activity feeds.</p>
+    </div>
+    <div class="separator"></div>
+    <div class="sub-project">
+      <h4>Educational Website</h4>
+      <p>&bull;A website designed for providing educational content, courses, tutorials, or resources. It can be used by schools, colleges, online learning platforms, or individual educators.</p>
+    </div>
+  </section>
+
+  <section id="recommendations">
+    <h5 style="font-size:1cm; text-align:left;margin:2cm;margin-bottom:18px;color: darkgreen;">Recommendations</h5>
+    <div class="review" id="review-section">
+      <div class="review-box-container"></div>
+    </div>
+  </section>
+  <section class="section recommendation">
+    <div class="review">
+      <h6 style="font-size:20px;text-align:left;margin-left: 8.5cm; margin-bottom:15px;margin-top:15px;color: rgb(0, 0, 0);">Leave Recommendation</h6>
+      <form onsubmit="event.preventDefault(); submitForm();">
+        <input type="text" id="name" placeholder="Name(optional)"><br>
+        <textarea id="user-message" placeholder="User Message" required></textarea><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="popup" id="popup">
+    <div class="tick-mark">&#10004;</div>
+    Thanks for leaving a recommendation!
+    <br><br>
+    <button style="background-color: #f4f1f1;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-left: 2cm;border-radius: 10px;width: 90px;height: 30px;" onclick="document.getElementById('popup').classList.remove('active')">OK</button>
+  </div>
+
+  <button class="scroll-to-top-button" onclick="scrollToTop()">
+    <img src="file:///home/seetha/Downloads/up-arrow%20(1).png" alt="Button Image">
+    <span></span>
+  </button>
+</body>
+</html>
